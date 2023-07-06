@@ -1,26 +1,26 @@
 function getComputerChoice() {
-    let rpsArray = ["rock", "paper", "scissors"];
+    let rpsArray = ["ROCK", "PAPER", "SCISSORS"];
     let rpsChoice = rpsArray[Math.floor(Math.random() * rpsArray.length)];
     alert (`Computer picks '${rpsChoice}!'`);
     return rpsChoice;
 }
 
 function playRound(userChoice, computerChoice) {
-    userChoice = prompt("'Rock', 'Paper' or 'Scissors'?").toLowerCase();
+    userChoice = prompt("'Rock', 'Paper' or 'Scissors'?").toUpperCase();
     computerChoice = getComputerChoice();    
     if (
-      (userChoice === "rock" && computerChoice === "paper") ||
-      (userChoice === "paper" && computerChoice === "scissors") ||
-      (userChoice === "scissors" && computerChoice === "rock") 
+      (userChoice === "ROCK" && computerChoice === "PAPER") ||
+      (userChoice === "PAPER" && computerChoice === "SCISSORS") ||
+      (userChoice === "SCISSORS" && computerChoice === "ROCK") 
     )  {
          alert(`You lose! '${computerChoice}' beats '${userChoice}'.`);
          console.log("Point to Computer");
          computerScore++
          return computerScore;
     } else if (
-      (userChoice === "paper" && computerChoice === "rock") ||
-      (userChoice === "scissors" && computerChoice === "paper") ||
-      (userChoice === "rock" && computerChoice === "scissors") 
+      (userChoice === "PAPER" && computerChoice === "ROCK") ||
+      (userChoice === "SCISSORS" && computerChoice === "PAPER") ||
+      (userChoice === "ROCK" && computerChoice === "SCISSORS") 
     ) {
         alert(`You win! '${userChoice}' beats '${computerChoice}'.`);
         console.log("Point to Player");
