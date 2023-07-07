@@ -5,9 +5,7 @@ function getComputerChoice() {
     return rpsChoice;
 }
 
-function playRound(userChoice, computerChoice) {
-    userChoice = prompt("'Rock', 'Paper' or 'Scissors'?").toUpperCase();
-    computerChoice = getComputerChoice();    
+function playRound(userChoice, computerChoice) { 
     if (
       (userChoice === "ROCK" && computerChoice === "PAPER") ||
       (userChoice === "PAPER" && computerChoice === "SCISSORS") ||
@@ -34,6 +32,8 @@ function playRound(userChoice, computerChoice) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
+        userChoice = prompt("'Rock', 'Paper' or 'Scissors'?").toUpperCase();
+        computerChoice = getComputerChoice();   
         playRound(userChoice, computerChoice)
     } if (userScore > computerScore) {
         alert(`Computer: ${computerScore}. You: ${userScore}. YOU WIN!`);
@@ -44,8 +44,9 @@ function game() {
     }
 }
 
-let userChoice;
-let computerChoice;
 let userScore = 0;
 let computerScore = 0;
 game()
+
+
+  
