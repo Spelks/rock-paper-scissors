@@ -6,24 +6,27 @@ function getComputerChoice() {
 }
 
 function playRound(userChoice, computerChoice) {
-    if (userScore === 5) {
-        let playerWins = document.querySelector(".score-message h3");
-        playerWins.textContent = "Congratulations! \nYou beat the Computer.";
-    } else if (computerScore === 5) {
-        let cpuWins = document.querySelector(".score-message h3");
-        cpuWins.textContent ="Computer wins! \nTry again?";
+    if (userScore === 3) {
+        playerWins = document.querySelector(".score-message h3");
+        playerWins.textContent = `Congratulations! You Win!`;
+    } else if (computerScore === 3) {
+        cpuWins = document.querySelector(".score-message h3");
+        cpuWins.textContent = `Computer Wins!`;
     } else {
         if (
             (userChoice === "ROCK" && computerChoice === "PAPER") ||
             (userChoice === "PAPER" && computerChoice === "SCISSORS") ||
-            (userChoice === "SCISSORS" && computerChoice === "ROCK") 
+            (userChoice === "SCISSORS" && computerChoice === "ROCK")
             )  { //Displays message for round loss and assigns the Computer a point
                 let cpuPoint = document.querySelector(".score-message h3");
                 cpuPoint.textContent = `'${userChoice}' vs '${computerChoice}'. \nComputer gets a Point!`;
                 computerScore++
                 let pointToCpu = document.querySelector(".cpu-score h3 span")
                 pointToCpu.textContent = `${computerScore}`
-                return computerScore;
+                    if (computerScore === 3) {
+                        let cpuWins = document.querySelector(".score-message h3");
+                        cpuWins.textContent = `'${userChoice}' loses to '${computerChoice}' \nComputer Wins!`;
+                    }
             } else if (
             (userChoice === "PAPER" && computerChoice === "ROCK") ||
             (userChoice === "SCISSORS" && computerChoice === "PAPER") ||
@@ -34,7 +37,10 @@ function playRound(userChoice, computerChoice) {
                 userScore++
                 let pointToPlayer = document.querySelector(".player-score h3 span")
                 pointToPlayer.textContent = `${userScore}`
-                return userScore;
+                    if (userScore === 3) {
+                        let playerWins = document.querySelector(".score-message h3");
+                        playerWins.textContent = `'${userChoice}' beats '${computerChoice}' \nCongratulations! You Win!`;
+                    }
             } else if (userChoice === computerChoice) 
             { //Displays message for a tie round and does not add point to either
                 let tiePoint = document.querySelector(".score-message h3");
